@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Rutina, Ejercicio
+from .serializers import RutinaSerializer, EjercicioSerializer
 
-# Create your views here.
+
+class RutinaViewSet(viewsets.ModelViewSet):
+    queryset = Rutina.objects.all()
+    serializer_class = RutinaSerializer
+
+class EjercicioViewSet(viewsets.ModelViewSet):
+    queryset = Ejercicio.objects.all()
+    serializer_class = EjercicioSerializer
